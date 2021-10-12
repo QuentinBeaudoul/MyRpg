@@ -17,7 +17,7 @@ class Character {
     var name = "NoName"
     var weapon: Weapon
     var isDead: Bool {
-        healthPoint > 0
+        healthPoint <= 0
     }
     
     // init avec un nom

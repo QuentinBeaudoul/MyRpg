@@ -17,12 +17,20 @@ class MyRpg {
         createTeam(for: playerOne)
         createTeam(for: playerTwo)
         
-        
+        while !isGameOver() {
+            
+        }
+        uiEndGame()
     }
     private static func uiStartGame(){
-        print("--------------")
+        print(" --------------")
         print("|Début du jeu !|")
-        print("--------------")
+        print(" --------------")
+    }
+    private static func uiEndGame(){
+        print(" --------------")
+        print("| Fin du jeu ! |")
+        print(" --------------")
     }
     private static func initiatePlayers(){
         print("Choisissez le nom du joueur 1: ")
@@ -84,6 +92,9 @@ class MyRpg {
         }
     }
     
+    private static func isGameOver() -> Bool {
+        return (playerOne.team?.isDead() ?? true) || (playerTwo.team?.isDead() ?? true)
+    }
     fileprivate static func menuSeparator(){
         print("---------------------------------------------")
     }

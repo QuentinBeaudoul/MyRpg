@@ -23,4 +23,8 @@ class Team {
         }
         return resArray.joined(separator: ", ")
     }
+    
+    func isDead() -> Bool{
+        return characters[0].isDead && characters[1].isDead && characters[2].isDead
+    }
 }
