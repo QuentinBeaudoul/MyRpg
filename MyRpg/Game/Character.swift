@@ -9,25 +9,25 @@ import Foundation
 
 // Classe qui représente un personage avec un nombre de pv.
 // Un nombre max de pv pour éviter l'over heal
-// un nom, une arme aléatoire et
+// un nom (par défaut "NoName"), une arme aléatoire et
 // un attribut isDead pour savoir si le personnage est mort
 class Character {
     var healthPoint: Int
     private let maxHealthPoint: Int
-    let name: String
+    var name = "NoName"
     var weapon: Weapon
     var isDead: Bool {
         healthPoint > 0
     }
     
-    // init avec un nom en paramètre, la seule valeur personnalisable
+    // init avec un nom
     // le nombre de pv est aléatoire entre 10 et 20
     // le nombre de pv max est calculé sur la base du nombre de pv
     // et une arme aléatoire
     init(name: String){
         healthPoint = Character.randomHealth()
-        maxHealthPoint = healthPoint
         self.name = name
+        maxHealthPoint = healthPoint
         weapon = Weapon()
     }
     

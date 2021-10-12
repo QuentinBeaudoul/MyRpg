@@ -15,4 +15,12 @@ class Team {
     init(team characters: [Character]){
         self.characters = characters
     }
+    
+    func getTeamMembersName() -> String{
+        var resArray = [String]()
+        for character in characters {
+            resArray.append(character.name)
+        }
+        return resArray.joined(separator: ", ")
+    }
 }

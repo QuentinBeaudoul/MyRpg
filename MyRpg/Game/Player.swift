@@ -11,10 +11,6 @@ import Foundation
 // composé de deux attributs name et Team (optionnel)
 // team représente l'équipe du joueur.
 class Player {
-    let name: String
+    var name: String = "NoName"
     var team: Team?
-    
-    init(playerName name: String){
-        self.name = name
-    }
 }
