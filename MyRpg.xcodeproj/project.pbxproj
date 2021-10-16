@@ -13,6 +13,7 @@
 		4FAAE68B2715B7350055EBC8 /* Team.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAAE6852715B7350055EBC8 /* Team.swift */; };
 		4FAAE68C2715B7350055EBC8 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAAE6862715B7350055EBC8 /* Player.swift */; };
 		4FAAE68D2715B7350055EBC8 /* Chest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAAE6872715B7350055EBC8 /* Chest.swift */; };
+		4FAAE68F271AC96F0055EBC8 /* Action.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FAAE68E271AC96F0055EBC8 /* Action.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -35,6 +36,7 @@
 		4FAAE6852715B7350055EBC8 /* Team.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Team.swift; sourceTree = "<group>"; };
 		4FAAE6862715B7350055EBC8 /* Player.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		4FAAE6872715B7350055EBC8 /* Chest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chest.swift; sourceTree = "<group>"; };
+		4FAAE68E271AC96F0055EBC8 /* Action.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Action.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				4FAAE6842715B7350055EBC8 /* Character.swift */,
 				4FAAE6822715B7350055EBC8 /* Weapon.swift */,
 				4FAAE6872715B7350055EBC8 /* Chest.swift */,
+				4FAAE68E271AC96F0055EBC8 /* Action.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -147,6 +150,7 @@
 				4FAAE6882715B7350055EBC8 /* Weapon.swift in Sources */,
 				4FAAE68B2715B7350055EBC8 /* Team.swift in Sources */,
 				4FAAE68C2715B7350055EBC8 /* Player.swift in Sources */,
+				4FAAE68F271AC96F0055EBC8 /* Action.swift in Sources */,
 				4FAAE68D2715B7350055EBC8 /* Chest.swift in Sources */,
 				4FAAE68A2715B7350055EBC8 /* Character.swift in Sources */,
 			);

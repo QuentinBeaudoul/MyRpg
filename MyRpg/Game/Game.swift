@@ -20,17 +20,48 @@ class MyRpg {
         createTeam(for: playerTwo)
         
         while !isGameOver() {
+            
+            
             let action = selectAction(forPlayer: playerOne)
+            let selectedCharacter = selectCharacter(inTeam: playerOne.team, accordingTo: action)
+            
+            print("Le personnage sélectionné est \(selectedCharacter.name)")
+            
+            /*switch action {
+            case .attack:
+                print("Qui voulez vous ")
+            case .heal:
+                print("Qui qui vous voulez heal ?")
+            }*/
+        
         }
         uiEndGame()
     }
-
-    private enum Action: String {
-        case attack = "attack"
-        case heal = "heal"
+    
+    private static func selectCharacter(inTeam team: Team, accordingTo action: Action) -> Character {
+        uiMenuSeparator()
+        let teamAsString: String = team.getTeamMembers(forAction: action)
+        uiDisplayTeam(team: team)
+        print("Quel personnage voulez vous utiliser ?")
+        while true {
+            print("Choisissez un personnage parmis: \(teamAsString)")
+            if let choice = readLine() {
+                if teamAsString.contains(choice) {
+                    if let selectedCharacter = team.getSelectedCharacter(byName: choice) {
+                        return selectedCharacter
+                    }else {
+                        print("\'\(choice)\' n'est pas une commande valide.")
+                    }
+                } else {
+                    print("\'\(choice)\' n'est pas une commande valide.")
+                }
+            }
+        }
     }
     
     private static func selectAction(forPlayer player: Player) -> Action {
+        uiMenuSeparator()
+        print("\(player.name) ! À vous de jouer !")
         while true {
             print("Choisissez une action: \(Action.attack) ou \(Action.heal)")
             if let choice = readLine() {
@@ -51,6 +82,7 @@ class MyRpg {
     }
     
     private static func initiatePlayers(){
+        uiMenuSeparator()
         print("Choisissez le nom du joueur 1: ")
         if let name = readLine() {
             playerOne.name = name
@@ -61,15 +93,14 @@ class MyRpg {
         }
         print("Les joueurs s'appellent respectivement \(playerOne.name) et \(playerTwo.name) !")
         print("")
-        uiMenuSeparator()
     }
     
     private static func createTeam(for player: Player) {
+        uiMenuSeparator()
         print("\(player.name), constitue ton équipe !")
         print("")
         namesSelection(forPlayer: player)
-        print("\(player.name), votre équipe est composé des personnages suivant: \(player.team.getTeamMembersName())")
-        uiMenuSeparator()
+        print("\(player.name), votre équipe est composé des personnages suivant: \(player.team.getAllTeamMembers())")
     }
     
     private static func namesSelection(forPlayer player: Player) {
@@ -96,13 +127,13 @@ class MyRpg {
     }
     
     private static func isGameOver() -> Bool {
-        return playerOne.team.isDead() || playerTwo.team.isDead()
+        return playerOne.team.areAllDead() || playerTwo.team.areAllDead()
     }
     
     
     // INTERFACE
     
-    fileprivate static func uiMenuSeparator(){
+    private static func uiMenuSeparator(){
         print("---------------------------------------------")
     }
     private static func uiStartGame(){
@@ -114,5 +145,19 @@ class MyRpg {
         print(" --------------")
         print("| Fin du jeu ! |")
         print(" --------------")
+    }
+    private static func uiDisplayTeam(team: Team) {
+        var resultBuilder = ""
+        print("Votre équipe:")
+        resultBuilder.append("--------------\n")
+        for (index, character) in team.characters.enumerated() {
+            resultBuilder.append("Nom: \(character.name)\n")
+            resultBuilder.append("Est mort: \(character.isDeadDisplayable)\n")
+            resultBuilder.append("Nombre de pv: \(character.healthPoint)\n")
+            resultBuilder.append("Puissance: \(character.weapon.power)\n")
+            resultBuilder.append("Capable de soigner: \(character.isHealerDisplayable)\n")
+            resultBuilder.append("--------------\n")
+        }
+        print(resultBuilder)
     }
 }

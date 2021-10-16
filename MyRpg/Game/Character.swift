@@ -16,8 +16,22 @@ class Character {
     private let maxHealthPoint: Int
     var name = "NoName"
     var weapon: Weapon
+    var isDeadDisplayable: String {
+        if isDead {
+            return "Oui"
+        }else {
+            return "Non"
+        }
+    }
     var isDead: Bool {
         healthPoint <= 0
+    }
+    var isHealerDisplayable: String {
+        if isHealer {
+            return "Oui"
+        }else{
+            return "Non"
+        }
     }
     var isHealer: Bool {
         weapon.type == WeaponType.support
@@ -56,6 +70,10 @@ class Character {
     // fonction qui permet au personnage de rammasser une arme (celle du coffre en l'occurence 
     func grabWeapon(weapon: Weapon){
         self.weapon = weapon
+    }
+    
+    func getByName(forName name: String) -> Character?{
+        if self.name == name { return self } else { return nil}
     }
     
     //Privates funcs
