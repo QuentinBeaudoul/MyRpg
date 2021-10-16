@@ -10,7 +10,7 @@ import Foundation
 // Classe qui représente l'équipe d'un joueur.
 // Un tableau de personnage
 class Team {
-    let characters: [Character]
+    var characters: [Character]
     
     init(team characters: [Character]){
         self.characters = characters
@@ -25,6 +25,8 @@ class Team {
     }
     
     func isDead() -> Bool{
-        return characters[0].isDead && characters[1].isDead && characters[2].isDead
+        return characters.allSatisfy { character in
+            character.isDead
+        }
     }
 }

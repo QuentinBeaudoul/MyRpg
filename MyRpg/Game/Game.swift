@@ -5,6 +5,8 @@
 //  Created by Quentin Beaudoul on 12/10/2021.
 //
 
+//TODO: Bouger l'ensemble de la logique présente dans le main dans une autre classe (class GameSession par exemple)
+
 import Foundation
 @main
 class MyRpg {
@@ -22,16 +24,7 @@ class MyRpg {
         }
         uiEndGame()
     }
-    private static func uiStartGame(){
-        print(" --------------")
-        print("|Début du jeu !|")
-        print(" --------------")
-    }
-    private static func uiEndGame(){
-        print(" --------------")
-        print("| Fin du jeu ! |")
-        print(" --------------")
-    }
+    
     private static func initiatePlayers(){
         print("Choisissez le nom du joueur 1: ")
         if let name = readLine() {
@@ -43,59 +36,58 @@ class MyRpg {
         }
         print("Les joueurs s'appellent respectivement \(playerOne.name) et \(playerTwo.name) !")
         print("")
-        menuSeparator()
+        uiMenuSeparator()
     }
     
     private static func createTeam(for player: Player) {
         print("\(player.name), constitue ton équipe !")
         print("")
-        var characters = [Character]()
-        namesSelection(&characters)
-        let team = Team(team: characters)
-        player.team = team
-        print("\(player.name), votre équipe est composé des personnages suivant: \(team.getTeamMembersName())")
-        menuSeparator()
+        namesSelection(forPlayer: player)
+        print("\(player.name), votre équipe est composé des personnages suivant: \(player.team.getTeamMembersName())")
+        uiMenuSeparator()
     }
     
-    private static func namesSelection(_ characters: inout [Character]) {
+    private static func namesSelection(forPlayer player: Player) {
         for id in 1...3 {
             print("Choisi le nom du personnage \(id): ")
             var isNameNotOk = true
             while isNameNotOk {
-                if let name = readLine() {
-                    if isNameAvailable(name: name, characters: characters) {
-                        characters.append(Character(name: name))
+                if let name = readLine(), !name.isEmpty {
+                    if isNameAvailable(name: name) {
+                        player.team.characters.append(Character(name: name))
                         isNameNotOk = false
                     } else {
                         print("Le nom \"\(name)\" est déjà utilisé. Choisissez en un autre: ")
                     }
                 }
             }
-            
         }
     }
     
-    private static func isNameAvailable(name: String? = nil, characters: [Character]) -> Bool {
-        if let unwrapName = name {
-            for character in characters {
-                if character.name.contains(unwrapName) {
-                    return false
-                }
-            }
-            if let team = playerOne.team {
-                return team.getTeamMembersName().contains(unwrapName) == false
-            }else{
-                return true
-            }
-        } else {
-            return false
-        }
+    private static func isNameAvailable(name: String) -> Bool {
+        return (playerOne.team.characters + playerTwo.team.characters).filter { character in
+            character.name.elementsEqual(name)
+        }.isEmpty
     }
     
     private static func isGameOver() -> Bool {
-        return (playerOne.team?.isDead() ?? true) || (playerTwo.team?.isDead() ?? true)
+        return playerOne.team.isDead() || playerTwo.team.isDead()
     }
-    fileprivate static func menuSeparator(){
+    
+    
+    // INTERFACE
+    
+    fileprivate static func uiMenuSeparator(){
         print("---------------------------------------------")
+    }
+    private static func uiStartGame(){
+        print(" --------------")
+        print("|Début du jeu !|")
+        print(" --------------")
+    }
+    private static func uiEndGame(){
+        print(" --------------")
+        print("| Fin du jeu ! |")
+        print(" --------------")
     }
 }

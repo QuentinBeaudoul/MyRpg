@@ -14,9 +14,9 @@
             filePath = "MyRpg/Game/Game.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
-            landmarkName = "namesSelection(_:)"
+            startingLineNumber = "51"
+            endingLineNumber = "51"
+            landmarkName = "createTeam(for:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -30,9 +30,25 @@
             filePath = "MyRpg/Game/Game.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "66"
-            endingLineNumber = "66"
-            landmarkName = "namesSelection(_:)"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "createTeam(for:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0A894C9F-415A-463A-B62F-90724F013B3A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MyRpg/Game/Game.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "68"
+            endingLineNumber = "68"
+            landmarkName = "namesSelection(forPlayer:)"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

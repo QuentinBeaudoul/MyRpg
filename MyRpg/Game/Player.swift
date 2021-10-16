@@ -12,5 +12,5 @@ import Foundation
 // team représente l'équipe du joueur.
 class Player {
     var name: String = "NoName"
-    var team: Team?
+    var team = Team(team: [])
 }
