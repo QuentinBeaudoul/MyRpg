@@ -23,22 +23,73 @@ class MyRpg {
             
             
             let action = selectAction(forPlayer: playerOne)
-            let selectedCharacter = selectCharacter(inTeam: playerOne.team, accordingTo: action)
-            
+            let selectedCharacter = selectTheDoingCharacter(inTeam: playerOne.team, accordingTo: action)
             print("Le personnage sélectionné est \(selectedCharacter.name)")
+            let targetCharacter = selectTheReceivingCharacter(currentPlayer: playerOne, accordingTo: action)
+            print("Le personnage ciblé est \(targetCharacter.name)")
             
-            /*switch action {
-            case .attack:
-                print("Qui voulez vous ")
-            case .heal:
-                print("Qui qui vous voulez heal ?")
-            }*/
+            
         
         }
         uiEndGame()
     }
     
-    private static func selectCharacter(inTeam team: Team, accordingTo action: Action) -> Character {
+    //private static func startAction()
+    
+    private static func selectTheReceivingCharacter(currentPlayer player: Player, accordingTo action: Action) -> Character {
+        var potentialTargets = ""
+        switch action {
+        case .attack:
+            let otherPlayer = getOtherPlayer(currentPlayer: player)
+            potentialTargets = otherPlayer.team.getTeamMembers(forAction: action)
+            print("Qui voulez vous attaquer parmis: \(potentialTargets) ?")
+            while true {
+                if let choice = readLine() {
+                    if potentialTargets.contains(choice) {
+                        if let target = otherPlayer.team.getSelectedCharacter(byName: choice) {
+                            return target
+                        }else{
+                            print("Le personnage n'existe pas !")
+                        }
+                    }else{
+                        print("'\(choice)' n'est pas une commande valide. Essayez en une autre:")
+                    }
+                } else {
+                    print("Commande invalide. Essayez en une autre:")
+                }
+            }
+        case .heal:
+            potentialTargets = player.team.getAllTeamMembers()
+            print("Qui voulez vous soigner parmis: \(potentialTargets) ?")
+            while true {
+                if let choice = readLine() {
+                    if potentialTargets.contains(choice) {
+                        if let target = player.team.getSelectedCharacter(byName: choice) {
+                            return target
+                        }else{
+                            print("Le personnage n'existe pas !")
+                        }
+                    } else {
+                        print("'\(choice)' n'est pas une commande valide. Essayez en une autre:")
+                    }
+                } else {
+                    print("Commande invalide. Essayez en une autre:")
+                }
+            }
+        }
+    }
+    
+    
+    
+    private static func getOtherPlayer(currentPlayer player: Player) -> Player {
+        if player == playerOne {
+            return playerTwo
+        } else {
+            return playerOne
+        }
+    }
+    
+    private static func selectTheDoingCharacter(inTeam team: Team, accordingTo action: Action) -> Character {
         uiMenuSeparator()
         let teamAsString: String = team.getTeamMembers(forAction: action)
         uiDisplayTeam(team: team)
@@ -61,7 +112,7 @@ class MyRpg {
     
     private static func selectAction(forPlayer player: Player) -> Action {
         uiMenuSeparator()
-        print("\(player.name) ! À vous de jouer !")
+        print("\(player.name). À vous de jouer !")
         while true {
             print("Choisissez une action: \(Action.attack) ou \(Action.heal)")
             if let choice = readLine() {
