@@ -11,15 +11,23 @@ import Foundation
 // Un tableau de personnage
 class Team {
     var characters: [Character]
+    
     var charactersNames: [String] {
-        var resArray = [String]()
-        for character in characters {
-            resArray.append(character.name)
-        }
-        return resArray
+        return extractAliveCharactersNamesFromArray(array: characters)
     }
+    
     init(team characters: [Character]){
         self.characters = characters
+    }
+    
+    private func extractAliveCharactersNamesFromArray(array: [Character]) -> [String] {
+        var resArray = [String]()
+        for character in array {
+            if !character.isDead {
+                resArray.append(character.name)
+            }
+        }
+        return resArray
     }
     
     private func getTeamMembersName() -> String{

@@ -5,36 +5,45 @@
 //  Created by Quentin Beaudoul on 12/10/2021.
 //
 
-//TODO: Bouger l'ensemble de la logique présente dans le main dans une autre classe (class GameSession par exemple)
+//TODO: Bouger l'ensemble de la logique présente dans le main dans une autre classe (class GameSession par exemple) et faire en sorte que les joueurs n'ait pas le même nom
+//
+
 
 import Foundation
 @main
 class MyRpg {
-    private static let playerOne = Player()
-    private static let playerTwo = Player()
-    
+    private static let players = [Player(), Player()]
+    private static var roundCount = 0
     static func main() {
         uiStartGame()
         initiatePlayers()
-        createTeam(for: playerOne)
-        createTeam(for: playerTwo)
+        for player in players {
+            createTeam(for: player)
+        }
         
         while !isGameOver() {
-            
-            
-            let action = selectAction(forPlayer: playerOne)
-            let selectedCharacter = selectTheDoingCharacter(inTeam: playerOne.team, accordingTo: action)
-            print("Le personnage sélectionné est \(selectedCharacter.name)")
-            let targetCharacter = selectTheReceivingCharacter(currentPlayer: playerOne, accordingTo: action)
-            print("Le personnage ciblé est \(targetCharacter.name)")
-            
-            
-        
+            roundCount += 1
+            for player in players {
+                let action = selectAction(forPlayer: player)
+                let selectedCharacter = selectTheDoingCharacter(inTeam: player.team, accordingTo: action)
+                print("Le personnage sélectionné est \(selectedCharacter.name)")
+                var targetCharacter = selectTheReceivingCharacter(currentPlayer: player, accordingTo: action)
+                print("Le personnage ciblé est \(targetCharacter.name)")
+                targetCharacter = actionDone(characterDoing: selectedCharacter, targetCharacter: targetCharacter, forAction: action)
+                uiSummaryAction(characterDoing: selectedCharacter, targetCharacter: targetCharacter, forAction: action)
+            }
         }
         uiEndGame()
     }
     
-    //private static func startAction()
+    private static func actionDone(characterDoing: Character, targetCharacter: Character, forAction action: Action) -> Character {
+        switch action {
+        case .attack:
+            return characterDoing.attack(who: targetCharacter)
+        case .heal:
+            return characterDoing.heal(who: targetCharacter)
+        }
+    }
     
     private static func selectTheReceivingCharacter(currentPlayer player: Player, accordingTo action: Action) -> Character {
         var potentialTargets = ""
@@ -82,10 +91,10 @@ class MyRpg {
     
     
     private static func getOtherPlayer(currentPlayer player: Player) -> Player {
-        if player == playerOne {
-            return playerTwo
+        if player == players[0] {
+            return players[1]
         } else {
-            return playerOne
+            return players[0]
         }
     }
     
@@ -134,15 +143,13 @@ class MyRpg {
     
     private static func initiatePlayers(){
         uiMenuSeparator()
-        print("Choisissez le nom du joueur 1: ")
-        if let name = readLine() {
-            playerOne.name = name
+        for (index, player) in players.enumerated() {
+            print("Choisissez le nom du joueur \(index + 1): ")
+            if let name = readLine() {
+                player.name = name
+            }
         }
-        print("Choisissez le nom du joueur 2: ")
-        if let name = readLine() {
-            playerTwo.name = name
-        }
-        print("Les joueurs s'appellent respectivement \(playerOne.name) et \(playerTwo.name) !")
+        print("Les joueurs s'appellent respectivement \(players[0].name) et \(players[1].name) !")
         print("")
     }
     
@@ -172,13 +179,13 @@ class MyRpg {
     }
     
     private static func isNameAvailable(name: String) -> Bool {
-        return (playerOne.team.characters + playerTwo.team.characters).filter { character in
+        return (players[0].team.characters + players[1].team.characters).filter { character in
             character.name.elementsEqual(name)
         }.isEmpty
     }
     
     private static func isGameOver() -> Bool {
-        return playerOne.team.areAllDead() || playerTwo.team.areAllDead()
+        return players[0].team.areAllDead() || players[1].team.areAllDead()
     }
     
     
@@ -201,7 +208,7 @@ class MyRpg {
         var resultBuilder = ""
         print("Votre équipe:")
         resultBuilder.append("--------------\n")
-        for (index, character) in team.characters.enumerated() {
+        for character in team.characters {
             resultBuilder.append("Nom: \(character.name)\n")
             resultBuilder.append("Est mort: \(character.isDeadDisplayable)\n")
             resultBuilder.append("Nombre de pv: \(character.healthPoint)\n")
@@ -210,5 +217,19 @@ class MyRpg {
             resultBuilder.append("--------------\n")
         }
         print(resultBuilder)
+    }
+    private static func uiSummaryAction(characterDoing: Character, targetCharacter: Character, forAction action: Action){
+        switch action {
+        case .attack:
+            print("\(characterDoing.name) attaque \(targetCharacter.name). Il lui inflige \(characterDoing.weapon.power) points de dégat !")
+            if targetCharacter.isDead {
+                print("\(targetCharacter.name) est mort.")
+            }else{
+                print("Il reste \(targetCharacter.healthPoint) points de vie à \(targetCharacter.name).")
+            }
+        case .heal:
+            print("\(characterDoing.name) soigne \(targetCharacter.name). Il lui rend \(characterDoing.weapon.power) points de vie !")
+            print("\(targetCharacter.name) a désormait \(targetCharacter.healthPoint) points de vie.")
+        }
     }
 }

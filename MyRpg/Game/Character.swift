@@ -53,18 +53,20 @@ class Character {
     // Si la puissance de l'arme du healer dépasse le nombre max de pv
     // du personnage soigné. Alors celui-ci récupère son nombre de pv
     // max
-    func healedBy(who character: Character) {
-        if healthPoint + character.weapon.power <= maxHealthPoint {
-            healthPoint += character.weapon.power
+    func heal(who character: Character) -> Character {
+        if character.healthPoint + weapon.power <= character.maxHealthPoint {
+            character.healthPoint += weapon.power
         }else{
-            healthPoint = maxHealthPoint
+            character.healthPoint = character.maxHealthPoint
         }
+        return character
     }
     
     // fonction qui permet au personnage de se faire attaquer par un autre
     // Les dégats sont calculé en fonction de la puissance de l'arme de l'attaquant
-    func attackedBy(who character: Character) {
-        healthPoint -= character.weapon.power
+    func attack(who character: Character) -> Character {
+        character.healthPoint -= weapon.power
+        return character
     }
     
     // fonction qui permet au personnage de rammasser une arme (celle du coffre en l'occurence 
