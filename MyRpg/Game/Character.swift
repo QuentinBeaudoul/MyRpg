@@ -19,6 +19,9 @@ class Character {
     var isDead: Bool {
         healthPoint <= 0
     }
+    var isHealer: Bool {
+        weapon.type == WeaponType.support
+    }
     
     // init avec un nom
     // le nombre de pv est aléatoire entre 10 et 20

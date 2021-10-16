@@ -20,9 +20,34 @@ class MyRpg {
         createTeam(for: playerTwo)
         
         while !isGameOver() {
-            
+            let action = selectAction(forPlayer: playerOne)
         }
         uiEndGame()
+    }
+
+    private enum Action: String {
+        case attack = "attack"
+        case heal = "heal"
+    }
+    
+    private static func selectAction(forPlayer player: Player) -> Action {
+        while true {
+            print("Choisissez une action: \(Action.attack) ou \(Action.heal)")
+            if let choice = readLine() {
+                switch choice {
+                case Action.attack.rawValue:
+                    return .attack
+                case Action.heal.rawValue:
+                    if player.team.containsHealer() {
+                        return .heal
+                    }else {
+                        print("L\'équipe de \(player.name) ne contient pas de soigneur !")
+                    }
+                default:
+                    print("\'\(choice)\' n'est pas une commande valide.")
+                }
+            }
+        }
     }
     
     private static func initiatePlayers(){

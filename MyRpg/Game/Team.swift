@@ -24,6 +24,12 @@ class Team {
         return resArray.joined(separator: ", ")
     }
     
+    func containsHealer() -> Bool {
+        return characters.contains { character in
+            character.isHealer
+        }
+    }
+    
     func isDead() -> Bool{
         return characters.allSatisfy { character in
             character.isDead
