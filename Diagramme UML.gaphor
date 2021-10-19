@@ -1,0 +1,678 @@
+<?xml version="1.0" encoding="utf-8"?>
+<gaphor xmlns="http://gaphor.sourceforge.net/model" version="3.0" gaphor-version="2.6.4">
+<StyleSheet id="75e7d3e2-29b1-11ec-9187-149d997f6971"/>
+<Package id="75e7f642-29b1-11ec-9187-149d997f6971">
+<name>
+<val>New model</val>
+</name>
+<ownedDiagram>
+<reflist>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedDiagram>
+<ownedType>
+<reflist>
+<ref refid="7bb6535c-29b1-11ec-9187-149d997f6971"/>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+<ref refid="b3a3b0c0-29b1-11ec-9187-149d997f6971"/>
+<ref refid="8e047a96-29b3-11ec-9187-149d997f6971"/>
+<ref refid="e6312dae-29b3-11ec-9187-149d997f6971"/>
+<ref refid="60743236-29b5-11ec-9187-149d997f6971"/>
+<ref refid="b20d14a8-2b2e-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedType>
+</Package>
+<Diagram id="75e7f764-29b1-11ec-9187-149d997f6971">
+<element>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</element>
+<name>
+<val>main</val>
+</name>
+<ownedPresentation>
+<reflist>
+<ref refid="7bb68160-29b1-11ec-9187-149d997f6971"/>
+<ref refid="86e639f4-29b1-11ec-9187-149d997f6971"/>
+<ref refid="b3a3be8a-29b1-11ec-9187-149d997f6971"/>
+<ref refid="8e0487de-29b3-11ec-9187-149d997f6971"/>
+<ref refid="e6313ec0-29b3-11ec-9187-149d997f6971"/>
+<ref refid="60744c1c-29b5-11ec-9187-149d997f6971"/>
+<ref refid="00f490be-29b8-11ec-9187-149d997f6971"/>
+<ref refid="293ecfda-29b8-11ec-9187-149d997f6971"/>
+<ref refid="3272e3b6-29b8-11ec-9187-149d997f6971"/>
+<ref refid="3a24af5e-29b8-11ec-9187-149d997f6971"/>
+<ref refid="4b8d5dc2-29b8-11ec-9187-149d997f6971"/>
+<ref refid="52d716fe-29b8-11ec-9187-149d997f6971"/>
+<ref refid="5ed9e80a-29b8-11ec-9187-149d997f6971"/>
+<ref refid="b20d2e2a-2b2e-11ec-9187-149d997f6971"/>
+<ref refid="d6866d20-2b2e-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedPresentation>
+</Diagram>
+<Class id="7bb6535c-29b1-11ec-9187-149d997f6971">
+<name>
+<val>class Game</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="8049d9b2-29b5-11ec-9187-149d997f6971"/>
+<ref refid="e87a183a-29b5-11ec-9187-149d997f6971"/>
+<ref refid="c06f194e-29b5-11ec-9187-149d997f6971"/>
+<ref refid="1a2155d8-29b6-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="7bb68160-29b1-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="7bb68160-29b1-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 478.0, 88.0)</val>
+</matrix>
+<width>
+<val>149.0</val>
+</width>
+<height>
+<val>102.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="7bb6535c-29b1-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Class id="86e62cf2-29b1-11ec-9187-149d997f6971">
+<name>
+<val>class Character</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="f3cd851c-29b2-11ec-9187-149d997f6971"/>
+<ref refid="fbbb73d8-29b2-11ec-9187-149d997f6971"/>
+<ref refid="09124d22-29b3-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<ownedOperation>
+<reflist>
+<ref refid="d7293e48-29b6-11ec-9187-149d997f6971"/>
+<ref refid="de2c54aa-29b6-11ec-9187-149d997f6971"/>
+<ref refid="20f61622-29b7-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedOperation>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="86e639f4-29b1-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="86e639f4-29b1-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 439.0, 469.0)</val>
+</matrix>
+<width>
+<val>252.0</val>
+</width>
+<height>
+<val>138.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Class id="b3a3b0c0-29b1-11ec-9187-149d997f6971">
+<name>
+<val>class Player</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="93871760-29b5-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="b3a3be8a-29b1-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="b3a3be8a-29b1-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 502.5, 233.0)</val>
+</matrix>
+<width>
+<val>100.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="b3a3b0c0-29b1-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Property id="f3cd851c-29b2-11ec-9187-149d997f6971">
+<class_>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>healthPoint</val>
+</name>
+<typeValue>
+<val>int</val>
+</typeValue>
+</Property>
+<Property id="fbbb73d8-29b2-11ec-9187-149d997f6971">
+<class_>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>name</val>
+</name>
+<typeValue>
+<val>String</val>
+</typeValue>
+</Property>
+<Property id="09124d22-29b3-11ec-9187-149d997f6971">
+<class_>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>weapon</val>
+</name>
+<typeValue>
+<val>Weapon</val>
+</typeValue>
+</Property>
+<Class id="8e047a96-29b3-11ec-9187-149d997f6971">
+<name>
+<val>class Weapon</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="d23299f0-29b3-11ec-9187-149d997f6971"/>
+<ref refid="a72f2a9e-2b2e-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<ownedOperation>
+<reflist>
+<ref refid="79cee2d4-29b6-11ec-9187-149d997f6971"/>
+<ref refid="9ed2ca6e-29b6-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedOperation>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="8e0487de-29b3-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="8e0487de-29b3-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 448.0, 697.0)</val>
+</matrix>
+<width>
+<val>209.0</val>
+</width>
+<height>
+<val>110.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="8e047a96-29b3-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Property id="d23299f0-29b3-11ec-9187-149d997f6971">
+<class_>
+<ref refid="8e047a96-29b3-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>power</val>
+</name>
+<typeValue>
+<val>int</val>
+</typeValue>
+</Property>
+<Class id="e6312dae-29b3-11ec-9187-149d997f6971">
+<name>
+<val>class Team</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="0555ddd8-29b4-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="e6313ec0-29b3-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="e6313ec0-29b3-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 467.5, 352.0)</val>
+</matrix>
+<width>
+<val>170.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="e6312dae-29b3-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Property id="0555ddd8-29b4-11ec-9187-149d997f6971">
+<class_>
+<ref refid="e6312dae-29b3-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>characters: [Characters]</val>
+</name>
+</Property>
+<Class id="60743236-29b5-11ec-9187-149d997f6971">
+<name>
+<val>class Chest</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="6f5b301a-29b5-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="60744c1c-29b5-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="60744c1c-29b5-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 189.0, 104.0)</val>
+</matrix>
+<width>
+<val>129.0</val>
+</width>
+<height>
+<val>60.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="60743236-29b5-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Property id="6f5b301a-29b5-11ec-9187-149d997f6971">
+<class_>
+<ref refid="60743236-29b5-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>weapon</val>
+</name>
+<typeValue>
+<val>Weapon</val>
+</typeValue>
+</Property>
+<Property id="8049d9b2-29b5-11ec-9187-149d997f6971">
+<class_>
+<ref refid="7bb6535c-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>playerOne</val>
+</name>
+<typeValue>
+<val>Player</val>
+</typeValue>
+</Property>
+<Property id="93871760-29b5-11ec-9187-149d997f6971">
+<class_>
+<ref refid="b3a3b0c0-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>team</val>
+</name>
+<typeValue>
+<val>Team</val>
+</typeValue>
+</Property>
+<Property id="c06f194e-29b5-11ec-9187-149d997f6971">
+<class_>
+<ref refid="7bb6535c-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>roundCount</val>
+</name>
+<typeValue>
+<val>int</val>
+</typeValue>
+</Property>
+<Property id="e87a183a-29b5-11ec-9187-149d997f6971">
+<class_>
+<ref refid="7bb6535c-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>playerTwo</val>
+</name>
+<typeValue>
+<val>Player</val>
+</typeValue>
+</Property>
+<Property id="1a2155d8-29b6-11ec-9187-149d997f6971">
+<class_>
+<ref refid="7bb6535c-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>randomChest</val>
+</name>
+<typeValue>
+<val>Chest</val>
+</typeValue>
+</Property>
+<Operation id="79cee2d4-29b6-11ec-9187-149d997f6971">
+<class_>
+<ref refid="8e047a96-29b3-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>setRandomPower</val>
+</name>
+</Operation>
+<Operation id="9ed2ca6e-29b6-11ec-9187-149d997f6971">
+<class_>
+<ref refid="8e047a96-29b3-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>setWeapon</val>
+</name>
+<ownedParameter>
+<reflist>
+<ref refid="ab1aad3c-29b6-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedParameter>
+</Operation>
+<Parameter id="ab1aad3c-29b6-11ec-9187-149d997f6971">
+<name>
+<val>weapon</val>
+</name>
+<ownerFormalParam>
+<ref refid="9ed2ca6e-29b6-11ec-9187-149d997f6971"/>
+</ownerFormalParam>
+<typeValue>
+<val>Weapon</val>
+</typeValue>
+</Parameter>
+<Operation id="d7293e48-29b6-11ec-9187-149d997f6971">
+<class_>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>heal</val>
+</name>
+<ownedParameter>
+<reflist>
+<ref refid="649380ea-29b7-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedParameter>
+</Operation>
+<Operation id="de2c54aa-29b6-11ec-9187-149d997f6971">
+<class_>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>attack</val>
+</name>
+<ownedParameter>
+<reflist>
+<ref refid="f55a1a9a-29b6-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedParameter>
+</Operation>
+<Parameter id="f55a1a9a-29b6-11ec-9187-149d997f6971">
+<name>
+<val>character</val>
+</name>
+<ownerFormalParam>
+<ref refid="de2c54aa-29b6-11ec-9187-149d997f6971"/>
+</ownerFormalParam>
+<typeValue>
+<val>Character</val>
+</typeValue>
+</Parameter>
+<Operation id="20f61622-29b7-11ec-9187-149d997f6971">
+<class_>
+<ref refid="86e62cf2-29b1-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>grabWeapon</val>
+</name>
+<ownedParameter>
+<reflist>
+<ref refid="20f66410-29b7-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedParameter>
+</Operation>
+<Parameter id="20f66410-29b7-11ec-9187-149d997f6971">
+<name>
+<val>weapon</val>
+</name>
+<ownerFormalParam>
+<ref refid="20f61622-29b7-11ec-9187-149d997f6971"/>
+</ownerFormalParam>
+<typeValue>
+<val>Weapon</val>
+</typeValue>
+</Parameter>
+<Parameter id="649380ea-29b7-11ec-9187-149d997f6971">
+<name>
+<val>character</val>
+</name>
+<ownerFormalParam>
+<ref refid="d7293e48-29b6-11ec-9187-149d997f6971"/>
+</ownerFormalParam>
+<typeValue>
+<val>Character</val>
+</typeValue>
+</Parameter>
+<Line id="00f490be-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 547.0, 697.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, -89.0)]</val>
+</points>
+</Line>
+<Line id="293ecfda-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 550.0, 469.0)</val>
+</matrix>
+<points>
+<val>[(8.0, -56.0), (8.0, 1.0)]</val>
+</points>
+</Line>
+<Line id="3272e3b6-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 557.0, 351.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (0.0, -58.0)]</val>
+</points>
+</Line>
+<Line id="3a24af5e-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 546.0, 213.0)</val>
+</matrix>
+<points>
+<val>[(2.0, -22.0), (2.0, 21.0)]</val>
+</points>
+</Line>
+<Line id="4b8d5dc2-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 446.0, 742.0)</val>
+</matrix>
+<points>
+<val>[(-184.0, 15.0), (2.0, 14.0)]</val>
+</points>
+</Line>
+<Line id="52d716fe-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 258.0, 721.0)</val>
+</matrix>
+<points>
+<val>[(-2.0, -556.0), (5.0, 36.0)]</val>
+</points>
+</Line>
+<Line id="5ed9e80a-29b8-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 318.0, 142.0)</val>
+</matrix>
+<points>
+<val>[(0.0, 0.0), (160.0, -1.0)]</val>
+</points>
+</Line>
+<Property id="a72f2a9e-2b2e-11ec-9187-149d997f6971">
+<class_>
+<ref refid="8e047a96-29b3-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>type</val>
+</name>
+<typeValue>
+<val>WeaponType</val>
+</typeValue>
+</Property>
+<Class id="b20d14a8-2b2e-11ec-9187-149d997f6971">
+<name>
+<val>enum WeaponType</val>
+</name>
+<ownedAttribute>
+<reflist>
+<ref refid="c2ef2a2c-2b2e-11ec-9187-149d997f6971"/>
+<ref refid="c857c528-2b2e-11ec-9187-149d997f6971"/>
+</reflist>
+</ownedAttribute>
+<package>
+<ref refid="75e7f642-29b1-11ec-9187-149d997f6971"/>
+</package>
+<presentation>
+<reflist>
+<ref refid="b20d2e2a-2b2e-11ec-9187-149d997f6971"/>
+</reflist>
+</presentation>
+</Class>
+<ClassItem id="b20d2e2a-2b2e-11ec-9187-149d997f6971">
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 743.0, 697.0)</val>
+</matrix>
+<width>
+<val>136.0</val>
+</width>
+<height>
+<val>74.0</val>
+</height>
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<subject>
+<ref refid="b20d14a8-2b2e-11ec-9187-149d997f6971"/>
+</subject>
+</ClassItem>
+<Property id="c2ef2a2c-2b2e-11ec-9187-149d997f6971">
+<class_>
+<ref refid="b20d14a8-2b2e-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>support</val>
+</name>
+</Property>
+<Property id="c857c528-2b2e-11ec-9187-149d997f6971">
+<class_>
+<ref refid="b20d14a8-2b2e-11ec-9187-149d997f6971"/>
+</class_>
+<name>
+<val>dps</val>
+</name>
+</Property>
+<Line id="d6866d20-2b2e-11ec-9187-149d997f6971">
+<diagram>
+<ref refid="75e7f764-29b1-11ec-9187-149d997f6971"/>
+</diagram>
+<horizontal>
+<val>0</val>
+</horizontal>
+<matrix>
+<val>(1.0, 0.0, 0.0, 1.0, 743.0, 733.0)</val>
+</matrix>
+<points>
+<val>[(1.0, 2.0), (-86.0, 2.0)]</val>
+</points>
+</Line>
+</gaphor>
