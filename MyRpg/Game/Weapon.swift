@@ -24,7 +24,7 @@ class Weapon {
     
     // retourne un nombre aléatoire entre 1 et 5
     static private func randomPower() -> Int {
-        return Int.random(in: 1..<5)
+        return Int.random(in: 4..<8)
     }
     
 }

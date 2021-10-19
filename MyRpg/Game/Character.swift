@@ -27,11 +27,12 @@ class Character {
         healthPoint <= 0
     }
     var isHealerDisplayable: String {
-        if isHealer {
+        return isHealer ? "Oui" : "Non"
+        /*if isHealer {
             return "Oui"
         }else{
             return "Non"
-        }
+        }*/
     }
     var isHealer: Bool {
         weapon.type == WeaponType.support
@@ -53,20 +54,21 @@ class Character {
     // Si la puissance de l'arme du healer dépasse le nombre max de pv
     // du personnage soigné. Alors celui-ci récupère son nombre de pv
     // max
-    func heal(who character: Character) -> Character {
+    func heal(who character: Character){
         if character.healthPoint + weapon.power <= character.maxHealthPoint {
             character.healthPoint += weapon.power
         }else{
             character.healthPoint = character.maxHealthPoint
         }
-        return character
     }
     
     // fonction qui permet au personnage de se faire attaquer par un autre
     // Les dégats sont calculé en fonction de la puissance de l'arme de l'attaquant
-    func attack(who character: Character) -> Character {
+    func attack(who character: Character) {
         character.healthPoint -= weapon.power
-        return character
+        if character.healthPoint < 0 {
+            character.healthPoint = 0
+        }
     }
     
     // fonction qui permet au personnage de rammasser une arme (celle du coffre en l'occurence 

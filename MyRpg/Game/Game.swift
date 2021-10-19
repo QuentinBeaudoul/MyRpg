@@ -23,25 +23,74 @@ class MyRpg {
         
         while !isGameOver() {
             roundCount += 1
+            
             for player in players {
+
+                if player.team.areAllDead() {
+                    let otherPlayer = getOtherPlayer(currentPlayer: player)
+                    uiEndGameStatistics(andTheWinnerIs: otherPlayer, loser: player)
+                    break
+                }
+                
                 let action = selectAction(forPlayer: player)
                 let selectedCharacter = selectTheDoingCharacter(inTeam: player.team, accordingTo: action)
                 print("Le personnage sélectionné est \(selectedCharacter.name)")
-                var targetCharacter = selectTheReceivingCharacter(currentPlayer: player, accordingTo: action)
+                
+                //Logique du coffre d'arme
+                if oneInThreeChance() {
+                    let chest = Chest()
+                    uiRandomChest(chest: chest)
+                    weaponSwitchChoice(forCharacter: selectedCharacter, chest: chest)
+                }
+                
+                
+                let targetCharacter = selectTheReceivingCharacter(currentPlayer: player, accordingTo: action)
                 print("Le personnage ciblé est \(targetCharacter.name)")
-                targetCharacter = actionDone(characterDoing: selectedCharacter, targetCharacter: targetCharacter, forAction: action)
+                actionDone(characterDoing: selectedCharacter, targetCharacter: targetCharacter, forAction: action)
                 uiSummaryAction(characterDoing: selectedCharacter, targetCharacter: targetCharacter, forAction: action)
             }
         }
         uiEndGame()
     }
     
-    private static func actionDone(characterDoing: Character, targetCharacter: Character, forAction action: Action) -> Character {
+    private static func weaponSwitchChoice(forCharacter character: Character, chest: Chest){
+        let insideWeapon = chest.insideWeapon
+        while true {
+            print("Voulez vous changer d'arme pour le personnage \(character.name) ? (répondre par \"oui\" ou par \"non\")")
+            if let choice = readLine() {
+                if choice.elementsEqual("oui") {
+                    if character.isHealer && insideWeapon.type == .dps {
+                        print("\(character.name) ramasse l'arme. Il ne peut plus soigner.")
+                    } else if !character.isHealer && insideWeapon.type == .support {
+                        print("\(character.name) rammase l'arme. Il peut désormait soigner son équipe.")
+                    }else {
+                        print("\(character.name) rammase l'arme.")
+                    }
+                    print("La puissance de \(character.name) est désormait de \(character.weapon.power).")
+                    character.grabWeapon(weapon: insideWeapon)
+                    return
+                }else if choice.elementsEqual("non") {
+                    print("\(character.name) préfère garder son arme.")
+                    return
+                }else {
+                    print("\(choice) n'est pas une commande valide. Répondez par \"oui\" ou par \"non\"")
+                }
+            } else {
+                print("Commande invalide. Répondez par \"oui\" ou par \"non\"")
+            }
+        }
+    }
+    
+    private static func oneInThreeChance() -> Bool {
+        return Int.random(in: 1..<6) == 3 ? true : false
+    }
+    
+    private static func actionDone(characterDoing: Character, targetCharacter: Character, forAction action: Action) {
         switch action {
         case .attack:
-            return characterDoing.attack(who: targetCharacter)
+            characterDoing.attack(who: targetCharacter)
         case .heal:
-            return characterDoing.heal(who: targetCharacter)
+            characterDoing.heal(who: targetCharacter)
         }
     }
     
@@ -185,7 +234,7 @@ class MyRpg {
     }
     
     private static func isGameOver() -> Bool {
-        return players[0].team.areAllDead() || players[1].team.areAllDead()
+        return  players[0].team.areAllDead() || players[1].team.areAllDead()
     }
     
     
@@ -206,7 +255,7 @@ class MyRpg {
     }
     private static func uiDisplayTeam(team: Team) {
         var resultBuilder = ""
-        print("Votre équipe:")
+        print("")
         resultBuilder.append("--------------\n")
         for character in team.characters {
             resultBuilder.append("Nom: \(character.name)\n")
@@ -231,5 +280,25 @@ class MyRpg {
             print("\(characterDoing.name) soigne \(targetCharacter.name). Il lui rend \(characterDoing.weapon.power) points de vie !")
             print("\(targetCharacter.name) a désormait \(targetCharacter.healthPoint) points de vie.")
         }
+    }
+    private static func uiEndGameStatistics(andTheWinnerIs winner: Player, loser: Player) {
+        
+        print("Statistiques de la partie.")
+        
+        uiDisplayTeam(team: winner.team)
+        uiDisplayTeam(team: loser.team)
+        
+        print("")
+        print("Le joueur \(winner.name) gagne en \(roundCount) tours. Félicitation !")
+    }
+    private static func uiRandomChest(chest: Chest){
+        let weapon = chest.insideWeapon
+        print("")
+        print("Un coffre vient d'apparaitre !")
+        print("Le coffre contient une arme:")
+        print(" ----------------------------")
+        print("|        puissance: \(weapon.power)       |")
+        print("|        type: \(weapon.type)          |")
+        print(" ----------------------------")
     }
 }
