@@ -6,9 +6,15 @@
 //
 
 import Foundation
+
+// Game session representation
+// players, representing two players
+// roundCount, the number of round that need to end a game
 class GameSession {
     private let players = [Player(), Player()]
     private var roundCount = 0
+    
+    // init func representing the progress of the game
     init() {
         uiStartGame()
         initiatePlayers()
@@ -32,7 +38,7 @@ class GameSession {
                 print("Le personnage sélectionné est \(selectedCharacter.name)")
                 
                 //Logique du coffre d'arme
-                if oneInThreeChance() {
+                if oneInSixChance() {
                     let chest = Chest()
                     uiRandomChest(chest: chest)
                     weaponSwitchChoice(forCharacter: selectedCharacter, chest: chest)
@@ -48,6 +54,10 @@ class GameSession {
         uiEndGame()
     }
     
+    // func reprensenting the random chest event.
+    // with the character in parameter can grab or not a weapon contained in a chest.
+    // if the player choose "oui" the character weapon is set to the new weapon
+    // if the player choose "non" the character keep its weapon
     private func weaponSwitchChoice(forCharacter character: Character, chest: Chest){
         let insideWeapon = chest.insideWeapon
         while true {
@@ -76,10 +86,16 @@ class GameSession {
         }
     }
     
-    private func oneInThreeChance() -> Bool {
+    // return true if the Int.random(in: 1..<6) == 3
+    // One in six chance in other words
+    // representing the chance that a chest can appear
+    private func oneInSixChance() -> Bool {
         return Int.random(in: 1..<6) == 3 ? true : false
     }
     
+    // representing the character action to another character depending of the chosen action
+    // if action is ".attack" the doing character will attack the target character
+    // if action is ".heal" the doing character will heal the target chraracter
     private func actionDone(characterDoing: Character, targetCharacter: Character, forAction action: Action) {
         switch action {
         case .attack:
@@ -89,6 +105,10 @@ class GameSession {
         }
     }
     
+    // representing the choice of the target character depending of the player and the action in parameters
+    // if action is ".attack" the player can select a character in the opposite team
+    // if action is ".heal" the player can select a character in his team
+    // the character selection is made by name
     private func selectTheReceivingCharacter(currentPlayer player: Player, accordingTo action: Action) -> Character {
         var potentialTargets = ""
         switch action {
@@ -133,7 +153,7 @@ class GameSession {
     }
     
     
-    
+    // return the opposite player depending of the player in parameter
     private func getOtherPlayer(currentPlayer player: Player) -> Player {
         if player == players[0] {
             return players[1]
@@ -142,6 +162,8 @@ class GameSession {
         }
     }
     
+    // retrun the character selected by the player depending of the action
+    // selection made by name
     private func selectTheDoingCharacter(inTeam team: Team, accordingTo action: Action) -> Character {
         uiMenuSeparator()
         let teamAsString: String = team.getTeamMembers(forAction: action)
@@ -163,6 +185,8 @@ class GameSession {
         }
     }
     
+    // return an action chosen by the player
+    // ".heal" action can be chosen only if the player has a healer in his team. Otherwise, a error message is rised.
     private func selectAction(forPlayer player: Player) -> Action {
         uiMenuSeparator()
         print("\(player.name). À vous de jouer !")
@@ -185,6 +209,7 @@ class GameSession {
         }
     }
     
+    // representing the player name selection
     private func initiatePlayers(){
         uiMenuSeparator()
         for (index, player) in players.enumerated() {
@@ -197,6 +222,7 @@ class GameSession {
         print("")
     }
     
+    // representing the team creation process for a given player
     private func createTeam(for player: Player) {
         uiMenuSeparator()
         print("\(player.name), constitue ton équipe !")
@@ -205,6 +231,9 @@ class GameSession {
         print("\(player.name), votre équipe est composé des personnages suivant: \(player.team.getAllTeamMembers())")
     }
     
+    // representing the name selection for a given player
+    // team are composed of 3 characters
+    // each name has to be unique.
     private func namesSelection(forPlayer player: Player) {
         for id in 1...3 {
             print("Choisi le nom du personnage \(id): ")
@@ -222,12 +251,14 @@ class GameSession {
         }
     }
     
+    // return true if the given name in parameter isnt already used in teams
     private func isNameAvailable(name: String) -> Bool {
         return (players[0].team.characters + players[1].team.characters).filter { character in
             character.name.elementsEqual(name)
         }.isEmpty
     }
     
+    // return true if at least one player hase no more character available in his team
     private func isGameOver() -> Bool {
         return  players[0].team.areAllDead() || players[1].team.areAllDead()
     }
@@ -275,6 +306,7 @@ class GameSession {
             print("\(characterDoing.name) soigne \(targetCharacter.name). Il lui rend \(characterDoing.weapon.power) points de vie !")
             print("\(targetCharacter.name) a désormait \(targetCharacter.healthPoint) points de vie.")
         }
+        print("")
     }
     private func uiEndGameStatistics(andTheWinnerIs winner: Player, loser: Player) {
         

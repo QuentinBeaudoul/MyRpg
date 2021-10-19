@@ -80,13 +80,13 @@
 			isa = PBXGroup;
 			children = (
 				4FAAE6832715B7350055EBC8 /* Game.swift */,
+				4FAAE690271ECAF40055EBC8 /* GameSession.swift */,
 				4FAAE6862715B7350055EBC8 /* Player.swift */,
 				4FAAE6852715B7350055EBC8 /* Team.swift */,
 				4FAAE6842715B7350055EBC8 /* Character.swift */,
 				4FAAE6822715B7350055EBC8 /* Weapon.swift */,
 				4FAAE6872715B7350055EBC8 /* Chest.swift */,
 				4FAAE68E271AC96F0055EBC8 /* Action.swift */,
-				4FAAE690271ECAF40055EBC8 /* GameSession.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";

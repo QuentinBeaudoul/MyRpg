@@ -7,6 +7,7 @@
 
 import Foundation
 
+// character action representation
 enum Action: String {
     case attack = "attack"
     case heal = "heal"

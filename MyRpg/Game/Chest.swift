@@ -7,7 +7,8 @@
 
 import Foundation
 
-// Initialisation de la class avec un attribue Weapon alétoire
+// random chest representation
+// init with a random weapon
 class Chest {
     let insideWeapon: Weapon
     init(){
